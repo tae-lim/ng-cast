@@ -6,7 +6,7 @@ angular.module('video-player')
   .component('videoBody', {
     controller: 'videoController',
     templateUrl: 'src/templates/app.html'
-})
+  });
 
 
 
