@@ -1,12 +1,13 @@
 angular.module('video-player')
-  // .controller('test', function () {
-  //   this.test = () => { console.log(this)};
-  // })
+// .controller('test', function () {
+//   this.test = () => { console.log(this)};
+// })
 
   .component('list', {
     // controller: 'test',
     bindings: {
-      videos: '<'
+      videos: '<',
+      select: '<'
     },
 
     templateUrl: 'src/templates/videoList.html'

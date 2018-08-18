@@ -1,6 +1,36 @@
 angular.module('video-player')
-  .controller('videoController', function () {
-    this.videoList = window.exampleVideoData;
+  .controller('videoController', function ($sce, youTube) {
+    this.url = $sce.trustAsResourceUrl("https://www.youtube.com/embed/");
+
+    this.videoList;
+
+    this.searchResults = (query) => {
+      this.param = {
+        key: window.YOUTUBE_API_KEY,
+        maxResults: "5",
+        part: 'snippet',
+        q: query,
+        type: 'video',
+        videoEmbeddable: 'true'
+      };
+      youTube.search(this.param, (data) => {
+        this.videoList = data;
+        this.selectedVideo = data[0];
+      });
+
+    }
+    this.searchResults('yugiOh');
+
+    this.selectVideo = (video) => {
+
+      this.selectedVideo = video;
+    }
+
+
+
+
+
+
   })
 
   .component('videoBody', {
