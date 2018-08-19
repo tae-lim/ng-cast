@@ -1,13 +1,13 @@
 angular.module('video-player')
   .controller('videoController', function ($sce, youTube) {
-    this.url = $sce.trustAsResourceUrl("https://www.youtube.com/embed/");
+    this.url = $sce.trustAsResourceUrl('https://www.youtube.com/embed/');
 
     this.videoList;
 
     this.searchResults = (query) => {
       this.param = {
         key: window.YOUTUBE_API_KEY,
-        maxResults: "5",
+        maxResults: '5',
         part: 'snippet',
         q: query,
         type: 'video',
@@ -18,13 +18,13 @@ angular.module('video-player')
         this.selectedVideo = data[0];
       });
 
-    }
+    };
     this.searchResults('yugiOh');
 
     this.selectVideo = (video) => {
 
       this.selectedVideo = video;
-    }
+    };
 
 
 
